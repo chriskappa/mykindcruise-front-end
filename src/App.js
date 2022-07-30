@@ -4,12 +4,84 @@ import "./App.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+
+  const data = [
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+    {
+      imageLink:
+        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+      title: "No Fly No Stress",
+    },
+  ];
   return (
     <div className="mainApp">
       {/* Start of Banner */}
       <div className="banner">
         <div className="banner-text">
-          <h1>Test</h1>
           <div className="input w-screen flex justify-center ">
             <form className="w-1/2 ">
               <label class="relative block ">
@@ -27,7 +99,7 @@ function App() {
                   </svg>
                 </span>
                 <input
-                  class="w-full bg-white    rounded-full py-1 pl-10 pr-4 focus:outline-none"
+                  class="w-full bg-white    rounded-full py-1 pl-10 pr-4 focus:outline-none text-center text-xs"
                   placeholder="Start Your Smart Search Here"
                   type="text"
                 />
@@ -37,6 +109,7 @@ function App() {
         </div>
       </div>
       {/* End of Banner */}
+      {/* Monthly Prices Section */}
       <section>
         <div className="monthlyPriceToogle flex justify-end mr-5 mt-2">
           <div className="toogleGroup flex  gap-3">
@@ -51,6 +124,27 @@ function App() {
           </div>
         </div>
       </section>
+      {/* END Monthly Prices Section */}
+      <div className="myadventurestohavesection mx-5 mt-2">
+        {/* Start Category List   */}
+        <div className="categoryList flex items-center gap-2">
+          <h1 className="text-sm">IMG</h1>
+          <h1 className="text-sm font-semibold text-gray-700">
+            My Adventures to have
+          </h1>
+        </div>
+        {/* End Category List */}
+        <div className="myadventuresList flex flex-row gap-2">
+          {data.map((v) => {
+            return (
+              <div className="listItem w-full  ">
+                <img src={v.imageLink} className="imageList" alt="" />
+                <h1 className="bg-blue-500 text-xs">Title:{v.title}</h1>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

@@ -19,3 +19,12 @@
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+
+img {
+  display: block;
+  max-width:330px;
+  max-height:105px;
+  width: auto;
+  height: auto;
+}
