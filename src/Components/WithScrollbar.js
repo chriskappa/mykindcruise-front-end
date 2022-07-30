@@ -1,93 +1,93 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "./WithScrollbar.css";
-
-const data = [
-  {
-    id: 1,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 2,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 3,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 4,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 5,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 6,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 7,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 8,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 9,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 10,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 11,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 12,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 13,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-  {
-    id: 14,
-    imageLink:
-      "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-    title: "No Fly No Stress",
-  },
-];
+import axios from "axios";
+// const data = [
+//   {
+//     id: 1,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 2,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 3,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 4,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 5,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 6,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 7,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 8,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 9,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 10,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 11,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 12,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 13,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+//   {
+//     id: 14,
+//     imageLink:
+//       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+//     title: "No Fly No Stress",
+//   },
+// ];
 const responsive = {
   desktop: {
     breakpoint: { max: 2000, min: 1024 },
@@ -104,8 +104,113 @@ const responsive = {
 };
 
 class WithScrollbar extends React.Component {
-  state = { additionalTransfrom: 0 };
+  state = {
+    additionalTransfrom: 0,
+    posts: [],
+    loading: true,
+  };
+  componentWillMount() {
+    axios
+      .get("http://localhost:4000/blog/cruises")
+      .then((data) => {
+        this.setState({ posts: [data.data.data], loading: false });
+
+        // console.log("DATA IS:");
+        // console.log(this.state.posts);
+      })
+      .catch((error) => alert(error));
+
+    // console.log("THIS STATE");
+    // this.state.posts.map((value) => console.log(value));
+  }
   render() {
+    // const data = [
+    //   {
+    //     id: 1,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 2,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 3,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 4,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 5,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 6,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 7,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 8,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 9,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 10,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 11,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 12,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 13,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    //   {
+    //     id: 14,
+    //     imageLink:
+    //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+    //     title: "No Fly No Stress",
+    //   },
+    // ];
+    // this.props.data.forEach((v) => console.log(v));
     const CustomSlider = ({ carouselState }) => {
       let value = 0;
       let carouselItemWidth = 0;
@@ -175,9 +280,9 @@ class WithScrollbar extends React.Component {
           }
         }}
       >
-        {data.map((v) => {
+        {this.props.data.map((v) => {
           return (
-            <div class="image-container increase-size w-3/5 ">
+            <div class="image-container increase-size w-3/5 " key={v.id}>
               <img
                 draggable={false}
                 style={{
@@ -194,6 +299,25 @@ class WithScrollbar extends React.Component {
             </div>
           );
         })}
+        {/* {this.state.posts?.map((v) => {
+          return (
+            <div class="image-container increase-size w-3/5 " key={v.id}>
+              <img
+                draggable={false}
+                style={{
+                  width: "100%",
+                  heigh: "500px",
+                  cursor: "pointer",
+                }}
+                className="rounded-tl-md rounded-tr-md"
+                src={v.imageLink}
+              />
+              <div class="image-container-text bg-blue-800  text-center text-xs p-1 text-white mb-2 rounded-bl-md rounded-br-md ">
+                <p>{v.title}</p>
+              </div>
+            </div>
+          );
+        })} */}
       </Carousel>
     );
   }

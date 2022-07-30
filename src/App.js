@@ -10,106 +10,146 @@ import MobileNavBar from "./Components/MobileNavBar";
 import NavBar from "./Components/Footer";
 import Footer from "./Components/Footer";
 import { FaSafari, FaRegThumbsUp, FaMap } from "react-icons/fa";
+import axios from "axios";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const inputRef = useRef(); //Ref In Order To Use DOM For AutoFocus
-  const data = [
-    {
-      id: 1,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 2,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 3,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 4,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 5,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 6,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 7,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 8,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 9,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 10,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 11,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 12,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 13,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-    {
-      id: 14,
-      imageLink:
-        "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
-      title: "No Fly No Stress",
-    },
-  ];
+  const [loading, setLoading] = useState(true);
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [adventures, setAdventures] = useState([]);
+  const [cruise, setCruise] = useState([]);
 
+  const inputRef = useRef(); //Ref In Order To Use DOM For AutoFocus
+  // const data = [
+  //   {
+  //     id: 1,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 2,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 3,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 4,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 5,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 6,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 7,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 8,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 9,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 10,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 11,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 12,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 13,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  //   {
+  //     id: 14,
+  //     imageLink:
+  //       "https://www.lwcholidays.com/app/uploads/2019/05/Luxury-Greece-Holiday-Banner.jpg",
+  //     title: "No Fly No Stress",
+  //   },
+  // ];
+
+  const fetchData = async () => {
+    const res = await Promise.all([
+      await axios.get("http://localhost:4000/blog/blogposts"),
+      await axios.get("http://localhost:4000/blog/adventures"),
+      await axios.get("http://localhost:4000/blog/cruises"),
+    ]);
+
+    setBlogPosts(res[0].data.data);
+    setAdventures(res[1].data);
+    setCruise(res[2].data);
+    setLoading(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const text = inputRef.current.value;
+    if (text.length <= 0) {
+      alert("Please Enter Something First");
+    } else {
+      alert(`Searching Query :${inputRef.current.value}`);
+    }
+  };
   useEffect(() => {
-    inputRef.current.focus(); //AutoFocus On Input On Page Load
+    // inputRef.current.focus(); //AutoFocus On Input On Page Load
+    fetchData();
+    console.log(`After SetData:`);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="w-screen h-screen ">
+        <div className="div flex h-screen justify-center items-center">
+          <h1>Loading...</h1>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="mainApp">
       {/* Start of Banner */}
       <div className="banner">
         <div className="banner-text">
           <div className="input w-screen flex justify-center ">
-            <form className="w-1/2 ">
+            <form className="w-1/2 " onSubmit={handleSubmit}>
               <label class="relative block ">
                 <span
                   class="absolute inset-y-0 left-0 flex items-center pl-3 hover:cursor-pointer"
@@ -167,9 +207,10 @@ function App() {
         </div>
         {/* End Category List */}
         <div className="myadventureList">
-          <WithScrollbar />
+          <WithScrollbar data={adventures.data} />
         </div>
       </div>
+
       <div className="myadventurestohavesection sm:mx-20 mt-2">
         {/* Start Category List   */}
         <div className="categoryList flex items-center gap-2 mx-7 mb-2">
@@ -177,15 +218,14 @@ function App() {
             <FaRegThumbsUp size={30} />
           </h1>
           <h1 className="text-sm font-semibold text-gray-700">
-            Popular Cruises
+            My Adventures to have
           </h1>
         </div>
         {/* End Category List */}
         <div className="myadventureList">
-          <WithScrollbar />
+          <WithScrollbar data={cruise.data} />
         </div>
       </div>
-
       {/* Start Of Helpful Blogs & FAQs */}
       <section className=" mx-7 sm:mx-28">
         <div className="flex justify-between items-center">
@@ -202,19 +242,21 @@ function App() {
           </h1>
         </div>
         <div className="blogPostList flex flex-col justify-between sm:flex-row sm:gap-5 sm:flex-wrap">
-          <BlogPost
-            title="UK Holidays Guide"
-            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
-          Roberts from My Kind of Cruise"
-            image="https://www.expatica.com/app/uploads/sites/10/2014/05/bank-holidays.jpg"
-          />
-          <BlogPost
+          {blogPosts.map((v) => (
+            <BlogPost
+              title={v.title}
+              body={v.body}
+              image={v.image}
+              key={v.id}
+            />
+          ))}
+          {/* <BlogPost
             title="Greece Holidays Guide"
             body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt Roberts from My Kind of Cruise"
             image="https://www.remax.eu/uploads/agent-1/Greece%20(Optimized)-5e580fa45d9f1.jpg"
           />
           <BlogPost
-            title="Do I have to tip or pay gratuties onboard?"
+            title="Do I have to tip or pay gratuities onboard?"
             body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
             Roberts from My Kind of Cruise."
             image="https://e3.365dm.com/21/12/768x432/skynews-facebook-meta-logo_5608613.jpg?20211208165724"
@@ -247,7 +289,7 @@ function App() {
             title="Greece Holidays Guide"
             body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt Roberts from My Kind of Cruise"
             image="https://www.remax.eu/uploads/agent-1/Greece%20(Optimized)-5e580fa45d9f1.jpg"
-          />
+          /> */}
         </div>
       </section>
       {/* END Of Helpful Blogs & FAQs */}
