@@ -15,6 +15,7 @@ import HelpfulBlogsSection from "./Components/HelpfulBlogsSection";
 import BannerSection from "./Components/BannerSection";
 import MonthlyPriceSection from "./Components/MonthlyPriceSection";
 import AdventuresList from "./Components/AdventuresList";
+import { apiLink } from "./Helpers/requests";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -41,19 +42,24 @@ function App() {
 
   */
   const fetchData = async () => {
-    // Using Promise.All in order to run all the requests in Paralel
-    // Adding Array of promises to the
-    const res = await Promise.all([
-      await axios.get("http://localhost:4000/blog/blogposts"),
-      await axios.get("http://localhost:4000/blog/adventures"),
-      await axios.get("http://localhost:4000/blog/cruises"),
-    ]);
+    try {
+      // Using Promise.All in order to run all the requests in Paralel
+      // Adding Array of promises to the
+      const res = await Promise.all([
+        await axios.get(`${apiLink}blog/blogposts`),
+        await axios.get(`${apiLink}blog/adventures`),
+        await axios.get(`${apiLink}blog/cruises`),
+      ]);
 
-    setBlogPosts(res[0].data.data);
-    setAdventures(res[1].data);
-    setCruise(res[2].data);
-    // Setting Loading False In order To Close Loading Screen
-    setLoading(false);
+      setBlogPosts(res[0].data.data);
+      setAdventures(res[1].data);
+      setCruise(res[2].data);
+      // Setting Loading False In order To Close Loading Screen
+      setLoading(false);
+    } catch (error) {
+      console.log(`Error on fetchData :${error}`);
+      setLoading(false);
+    }
   };
 
   /* 
