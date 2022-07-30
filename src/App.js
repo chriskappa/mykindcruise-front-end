@@ -9,6 +9,7 @@ import BlogPost from "./Components/BlogPost";
 import MobileNavBar from "./Components/MobileNavBar";
 import NavBar from "./Components/Footer";
 import Footer from "./Components/Footer";
+import { FaSafari, FaRegThumbsUp, FaMap } from "react-icons/fa";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const inputRef = useRef(); //Ref In Order To Use DOM For AutoFocus
@@ -157,7 +158,9 @@ function App() {
       <div className="myadventurestohavesection sm:mx-20 mt-2">
         {/* Start Category List   */}
         <div className="categoryList flex items-center gap-2 mx-7 mb-2">
-          <h1 className="text-sm">IMG</h1>
+          <h1 className="text-sm">
+            <FaSafari size={30} />
+          </h1>
           <h1 className="text-sm font-semibold text-gray-700">
             My Adventures to have
           </h1>
@@ -170,9 +173,11 @@ function App() {
       <div className="myadventurestohavesection sm:mx-20 mt-2">
         {/* Start Category List   */}
         <div className="categoryList flex items-center gap-2 mx-7 mb-2">
-          <h1 className="text-sm">IMG</h1>
+          <h1 className="text-sm">
+            <FaRegThumbsUp size={30} />
+          </h1>
           <h1 className="text-sm font-semibold text-gray-700">
-            My Adventures to have
+            Popular Cruises
           </h1>
         </div>
         {/* End Category List */}
@@ -185,7 +190,9 @@ function App() {
       <section className=" mx-7 sm:mx-28">
         <div className="flex justify-between items-center">
           <div className="flex gap-1">
-            <h1 className="text-xs">IMG</h1>
+            <h1 className="text-xs">
+              <FaMap size={30} />
+            </h1>
             <h1 className="text-xs font-bold text-gray-700">
               Helpful Blogs & FAQs
             </h1>
