@@ -20,7 +20,10 @@
     monospace;
 } */
 
+body {
+  overflow-x: hidden; /* Hide scrollbars */
 
+}
 img {
   display: block;
   max-width:330px;

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import logo from "./logo.svg";
 import "./App.css";
-
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import WithScrollbar from "./Components/WithScrollbar";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -141,19 +143,51 @@ function App() {
         </div>
       </section>
       {/* END Monthly Prices Section */}
-      <div className="myadventurestohavesection mx-5 mt-2">
+      <div className="myadventurestohavesection sm:mx-20 mt-2">
         {/* Start Category List   */}
-        <div className="categoryList flex items-center gap-2">
+        <div className="categoryList flex items-center gap-2 mx-7 mb-2">
           <h1 className="text-sm">IMG</h1>
           <h1 className="text-sm font-semibold text-gray-700">
             My Adventures to have
           </h1>
         </div>
         {/* End Category List */}
-        <div className="myadventuresList flex flex-row gap-2">
-          <h1>Hello</h1>
+        <div className="myadventureList">
+          <WithScrollbar />
         </div>
       </div>
+
+      {/* Start Of Helpful Blogs & FAQs */}
+      <section className=" mx-7 sm:mx-28">
+        <div className="flex justify-between items-center">
+          <div className="flex gap-1">
+            <h1 className="text-xs">IMG</h1>
+            <h1 className="text-xs font-bold text-gray-700">
+              Helpful Blogs & FAQs
+            </h1>
+          </div>
+          <h1 className="text-gray-700 text-xs  hover:cursor-pointer">
+            Find More Here{" "}
+          </h1>
+        </div>
+        <div className="post mt-2 flex ">
+          <img
+            src="https://media.istockphoto.com/photos/the-croupier-holds-a-roulette-ball-in-a-casino-in-his-hand-picture-id1158005632?k=20&m=1158005632&s=612x612&w=0&h=DeeyqQewMX_Y3ZUnUoYEu7HriAXGVkf7WBOjCQjqrSc="
+            className="w-14 h-14 rounded mr-2"
+            alt=""
+          />
+          <div className="blogs-text-section flex flex-col">
+            <h1 className="font-semibold text-sm">
+              Choose Fun! Choose Carnival!
+            </h1>
+            <p className="text-xs text-gray-500">
+              New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+              Roberts from My Kind of Cruise
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* END Of Helpful Blogs & FAQs */}
     </div>
   );
 }
