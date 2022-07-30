@@ -1,5 +1,6 @@
 import React from "react";
 
+// Setting Default Values for Image , title,body in case some of these values are not used as props
 function BlogPost({
   image = "https://media.istockphoto.com/photos/the-croupier-holds-a-roulette-ball-in-a-casino-in-his-hand-picture-id1158005632?k=20&m=1158005632&s=612x612&w=0&h=DeeyqQewMX_Y3ZUnUoYEu7HriAXGVkf7WBOjCQjqrSc=",
   title = "Not Found!",
