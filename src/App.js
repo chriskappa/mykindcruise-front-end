@@ -7,7 +7,8 @@ import "react-multi-carousel/lib/styles.css";
 import WithScrollbar from "./Components/WithScrollbar";
 import BlogPost from "./Components/BlogPost";
 import MobileNavBar from "./Components/MobileNavBar";
-import NavBar from "./Components/NavBar";
+import NavBar from "./Components/Footer";
+import Footer from "./Components/Footer";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const inputRef = useRef(); //Ref In Order To Use DOM For AutoFocus
@@ -245,7 +246,7 @@ function App() {
       {/* END Of Helpful Blogs & FAQs */}
 
       <section>
-        <NavBar />
+        <Footer />
       </section>
     </div>
   );

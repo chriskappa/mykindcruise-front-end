@@ -6,12 +6,15 @@ function BlogPost({
   body = "Not Found",
 }) {
   return (
-    <div className="post mt-2 flex flex-row py-10 ">
-      <img src={image} className="w-14 h-14 rounded mr-2" alt="" />
-      <div className="blogs-text-section flex flex-col">
-        <h1 className="font-semibold text-sm">{title}</h1>
-        <p className="text-xs text-gray-500 w-5/6">{body}</p>
+    <div className="flex flex-col hover:cursor-pointer">
+      <div className="post mt-2 flex flex-row py-10 ">
+        <img src={image} className="w-14 h-14 rounded mr-2" alt="" />
+        <div className="blogs-text-section flex flex-col">
+          <h1 className="font-semibold text-sm">{title}</h1>
+          <p className="text-xs text-gray-500 w-5/6">{body}</p>
+        </div>
       </div>
+      <hr class="border-1 w-full  border-gray-500 hover:border-purple-500 drop-shadow-xl" />
     </div>
   );
 }
