@@ -7,7 +7,7 @@ function BlogPost({
   body = "Not Found",
 }) {
   return (
-    <div className="flex flex-col hover:cursor-pointer">
+    <div className="flex flex-col hover:cursor-pointer hover:text-red-500">
       <div className="post mt-2 flex flex-row py-10 ">
         <img src={image} className="w-14 h-14 rounded mr-2" alt="" />
         <div className="blogs-text-section flex flex-col">
