@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import logo from "./logo.svg";
 import "./App.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import WithScrollbar from "./Components/WithScrollbar";
+import BlogPost from "./Components/BlogPost";
+import MobileNavBar from "./Components/MobileNavBar";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-
+  const inputRef = useRef(); //Ref In Order To Use DOM For AutoFocus
   const data = [
     {
       id: 1,
@@ -95,6 +97,9 @@ function App() {
     },
   ];
 
+  useEffect(() => {
+    inputRef.current.focus(); //AutoFocus On Input On Page Load
+  }, []);
   return (
     <div className="mainApp">
       {/* Start of Banner */}
@@ -117,6 +122,7 @@ function App() {
                   </svg>
                 </span>
                 <input
+                  ref={inputRef}
                   class="w-full bg-white    rounded-full py-1 pl-10 pr-4 focus:outline-none text-center text-xs"
                   placeholder="Start Your Smart Search Here"
                   type="text"
@@ -156,6 +162,19 @@ function App() {
           <WithScrollbar />
         </div>
       </div>
+      <div className="myadventurestohavesection sm:mx-20 mt-2">
+        {/* Start Category List   */}
+        <div className="categoryList flex items-center gap-2 mx-7 mb-2">
+          <h1 className="text-sm">IMG</h1>
+          <h1 className="text-sm font-semibold text-gray-700">
+            My Adventures to have
+          </h1>
+        </div>
+        {/* End Category List */}
+        <div className="myadventureList">
+          <WithScrollbar />
+        </div>
+      </div>
 
       {/* Start Of Helpful Blogs & FAQs */}
       <section className=" mx-7 sm:mx-28">
@@ -170,24 +189,20 @@ function App() {
             Find More Here{" "}
           </h1>
         </div>
-        <div className="post mt-2 flex ">
-          <img
-            src="https://media.istockphoto.com/photos/the-croupier-holds-a-roulette-ball-in-a-casino-in-his-hand-picture-id1158005632?k=20&m=1158005632&s=612x612&w=0&h=DeeyqQewMX_Y3ZUnUoYEu7HriAXGVkf7WBOjCQjqrSc="
-            className="w-14 h-14 rounded mr-2"
-            alt=""
-          />
-          <div className="blogs-text-section flex flex-col">
-            <h1 className="font-semibold text-sm">
-              Choose Fun! Choose Carnival!
-            </h1>
-            <p className="text-xs text-gray-500">
-              New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
-              Roberts from My Kind of Cruise
-            </p>
-          </div>
+        <div className="blogPostList flex flex-col justify-between sm:flex-row sm:gap-5 sm:flex-wrap">
+          <BlogPost />
+          <BlogPost />
+          <BlogPost />
+          <BlogPost />
+          <BlogPost />
+          <BlogPost />
         </div>
       </section>
       {/* END Of Helpful Blogs & FAQs */}
+
+      <section>
+        <MobileNavBar />
+      </section>
     </div>
   );
 }

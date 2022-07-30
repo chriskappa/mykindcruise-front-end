@@ -90,7 +90,7 @@ const data = [
 ];
 const responsive = {
   desktop: {
-    breakpoint: { max: 1600, min: 1024 },
+    breakpoint: { max: 2000, min: 1024 },
     items: 3,
   },
   tablet: {
@@ -160,7 +160,7 @@ class WithScrollbar extends React.Component {
       <Carousel
         ssr={false}
         ref={(el) => (this.Carousel = el)}
-        partialVisbile={false}
+        partialVisbile={true}
         customButtonGroup={<CustomSlider />}
         itemClass="slider-image-item"
         responsive={responsive}
