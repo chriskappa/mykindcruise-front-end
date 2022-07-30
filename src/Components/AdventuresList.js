@@ -3,7 +3,7 @@ import { FaSafari, FaRegThumbsUp, FaMap } from "react-icons/fa";
 import WithScrollbar from "./WithScrollbar";
 function AdventuresList({ adventures, icon }) {
   return (
-    <div className="myadventurestohavesection sm:mx-20 mt-2">
+    <div className="myadventurestohavesection sm:mx-20 mt-2 overflow-hidden sm:overflow-visible">
       {/* Start Category List   */}
       <div className="categoryList flex items-center gap-2 mx-7 mb-2">
         {icon}

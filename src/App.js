@@ -23,7 +23,14 @@ function App() {
   const [cruise, setCruise] = useState([]);
 
   const inputRef = useRef(); //Ref In Order To Use DOM For AutoFocus
-
+  document.body.addEventListener(
+    "touchmove",
+    function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    },
+    false
+  );
   /* 
   * FetchData:
   * FetchData is reponsibile to fetch all the endpoints of the homeScreen
