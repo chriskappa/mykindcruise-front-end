@@ -2,6 +2,34 @@
   text-align: center;
 }
 
+
+.banner{
+  color:white;
+  display: flex;
+  background: url(https://www.thedailymontage.com/wp-content/uploads/2018/01/ben-o-bro-361591.jpg) top left/cover no-repeat;
+  height:200px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+}
+
+.banner input{
+
+  margin:0;
+  text-shadow: 2px 2px 6px #000;
+  
+
+}
+
+.banner-text{
+  padding-top: 40px;
+}
+.text{
+  background:"red";
+  color: red;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
