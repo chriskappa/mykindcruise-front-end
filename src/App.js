@@ -108,7 +108,10 @@ function App() {
           <div className="input w-screen flex justify-center ">
             <form className="w-1/2 ">
               <label class="relative block ">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <span
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 hover:cursor-pointer"
+                  onClick={() => alert("Searching")}
+                >
                   <svg
                     class="h-5 w-5 fill-black"
                     xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +126,7 @@ function App() {
                 </span>
                 <input
                   ref={inputRef}
-                  class="w-full bg-white    rounded-full py-1 pl-10 pr-4 focus:outline-none text-center text-xs"
+                  class="w-full bg-white text-black    rounded-full py-1 pl-10 pr-4 focus:outline-none text-center text-xs"
                   placeholder="Start Your Smart Search Here"
                   type="text"
                 />
@@ -190,12 +193,52 @@ function App() {
           </h1>
         </div>
         <div className="blogPostList flex flex-col justify-between sm:flex-row sm:gap-5 sm:flex-wrap">
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
+          <BlogPost
+            title="UK Holidays Guide"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+          Roberts from My Kind of Cruise"
+            image="https://www.expatica.com/app/uploads/sites/10/2014/05/bank-holidays.jpg"
+          />
+          <BlogPost
+            title="Greece Holidays Guide"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt Roberts from My Kind of Cruise"
+            image="https://www.remax.eu/uploads/agent-1/Greece%20(Optimized)-5e580fa45d9f1.jpg"
+          />
+          <BlogPost
+            title="Do I have to tip or pay gratuties onboard?"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+            Roberts from My Kind of Cruise."
+            image="https://e3.365dm.com/21/12/768x432/skynews-facebook-meta-logo_5608613.jpg?20211208165724"
+          />
+          <BlogPost
+            title="Travel you can really trust"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+            Roberts from My Kind of Cruise"
+            image="https://www.cnet.com/a/img/resize/8e8da3c2f68e10a3913f4ab43aa0306c026dca5c/hub/2020/04/22/9c0515dc-bb9f-4386-9052-79885ef81ca8/iphone-se-2020-21.jpg?auto=webp&width=768"
+          />
+          <BlogPost
+            title="What's a Cabin Category?"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+            Roberts from My Kind of Cruise"
+            image="https://images.unsplash.com/photo-1622151834677-70f982c9adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFuJTIwd2l0aCUyMGxhcHRvcHxlbnwwfHwwfHw%3D&w=1000&q=80"
+          />
+          <BlogPost
+            title="How do I know which cruise terminal i am saili..."
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+            Roberts from My Kind of Cruise."
+            image="https://cdn.cnn.com/cnnnext/dam/assets/200421145514-costa-deliziosa-2-1-full-169.jpg"
+          />
+          <BlogPost
+            title="UK Holidays Guide"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt
+          Roberts from My Kind of Cruise"
+            image="https://www.expatica.com/app/uploads/sites/10/2014/05/bank-holidays.jpg"
+          />
+          <BlogPost
+            title="Greece Holidays Guide"
+            body="New to Cruising or a Seasoned Funseeker?Carnival is fun By Matt Roberts from My Kind of Cruise"
+            image="https://www.remax.eu/uploads/agent-1/Greece%20(Optimized)-5e580fa45d9f1.jpg"
+          />
         </div>
       </section>
       {/* END Of Helpful Blogs & FAQs */}
