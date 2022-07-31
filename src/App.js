@@ -36,7 +36,12 @@ function App() {
   const fetchData = async () => {
     try {
       // Using Promise.All in order to run all the requests in Paralel
-      // Adding Array of promises to the
+      // Adding Array of promises to the promise.all function
+      /*
+       * In real case scenario one end point could do all the work at once to save network requests and return (blogPosts,adventures,cruises)
+       * But in this case its good to use Promise.all to run the in parallel and save time without waiting each one to finish
+       * eg. It would be better to have for loop adding all the required data and return them at once
+       */
       const res = await Promise.all([
         await axios.get(`${apiLink}blog/blogposts`),
         await axios.get(`${apiLink}blog/adventures`),

@@ -110,16 +110,6 @@ class WithScrollbar extends React.Component {
     loading: true,
   };
   componentWillMount() {
-    axios
-      .get("http://localhost:4000/blog/cruises")
-      .then((data) => {
-        this.setState({ posts: [data.data.data], loading: false });
-
-        // console.log("DATA IS:");
-        // console.log(this.state.posts);
-      })
-      .catch((error) => alert(error));
-
     // console.log("THIS STATE");
     // this.state.posts.map((value) => console.log(value));
   }
@@ -211,6 +201,9 @@ class WithScrollbar extends React.Component {
     //   },
     // ];
     // this.props.data.forEach((v) => console.log(v));
+    const truncate = (str) => {
+      return str.length > 15 ? str.substring(0, 15) + "..." : str;
+    };
     const CustomSlider = ({ carouselState }) => {
       let value = 0;
       let carouselItemWidth = 0;
@@ -282,42 +275,25 @@ class WithScrollbar extends React.Component {
       >
         {this.props.data.map((v) => {
           return (
-            <div class="image-container increase-size w-3/5 " key={v.id}>
+            <div class="image-container increase-size w-3/6  " key={v.id}>
               <img
                 draggable={false}
+                // className="w-full h-92"
                 style={{
                   width: "100%",
                   heigh: "500px",
+
                   cursor: "pointer",
                 }}
                 className="rounded-tl-md rounded-tr-md"
                 src={v.imageLink}
               />
               <div class="image-container-text bg-blue-800  text-center text-xs p-1 text-white mb-2 rounded-bl-md rounded-br-md ">
-                <p>{v.title}</p>
+                <p>{truncate(v.title)}</p>
               </div>
             </div>
           );
         })}
-        {/* {this.state.posts?.map((v) => {
-          return (
-            <div class="image-container increase-size w-3/5 " key={v.id}>
-              <img
-                draggable={false}
-                style={{
-                  width: "100%",
-                  heigh: "500px",
-                  cursor: "pointer",
-                }}
-                className="rounded-tl-md rounded-tr-md"
-                src={v.imageLink}
-              />
-              <div class="image-container-text bg-blue-800  text-center text-xs p-1 text-white mb-2 rounded-bl-md rounded-br-md ">
-                <p>{v.title}</p>
-              </div>
-            </div>
-          );
-        })} */}
       </Carousel>
     );
   }
